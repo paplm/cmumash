@@ -1,9 +1,17 @@
 Cmumash::Application.routes.draw do
+  get "stream/stream"
+
+  get "user/student"
+
+  get "home/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
   # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
+     match 'student/:id' => 'user#view'
+     match 'user/:id' => 'user#view'
+     match 'stream/:id' => 'stream#stream'
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
@@ -48,7 +56,7 @@ Cmumash::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 
