@@ -1,0 +1,38 @@
+<h>cmumash is an application that work like facemash of Mark Zuck</h>
+
+<h2>Backgound</h2>
+
+CMU is the biggest university in northern of Thailand
+it's top 1000 university of the world
+
+but i found a way to get the pictures of all students in the univesity since CMU start,
+
+if you watched The Social network movie, the way to get  pictures is such like Mark get pictures from his house website(i swear, i found this way before i watch the movie)
+
+let's i explain
+
+CMU have a website that have information of all students include students images
+so they keep pictures in public folder of site, file named as student id sush as 551234567.jpg , and now i got all images easily with a line of command
+
+<p>curl -fO http://mis.cmu.ac.th/cmumis/images/student/[0-550000000].jpg </p>
+
+with in six hour
+
+<h2>What i want to do with this</h2>
+
+as i said i want to create the app like facemash, but as a student of CMU i dont want to harm anyone with the app, let's see spec following
+1. user have to register and login by need CMU student id and they facebook autherize
+2. app should run command to get the image only for one who registered
+3. user should put the student id of one who they want to compare(app will get the pictures of comparing one too), i will call it's streaming
+4. when streaming is completed , it should show on user facebook wall,
+5. in the steaming page should able to vote as <3
+6. streaming should allow to comment
+7. streaming should allow to share again and again
+8. streaming should allow to report if someone want to delete the stream
+9. system should keep info of each streaming and each one
+10. user page will show which streaming that start from user and which is liked or voted from user
+11. first page will show as three tab of global streaming
+---1. popular steaming of that time
+---2. lastest streaming
+---3. streaming about they friends
+
