@@ -1,0 +1,54 @@
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".student_img").css("opacity","0.8");
+
+    $(".student_img").hover(function () {
+      $(this).stop().animate({
+        opacity: 1.1
+      }, "slow");
+    },
+    function () {
+      $(this).stop().animate({
+        opacity: 0.8
+      }, "slow");
+    });
+  });
+
+
+</script>
+
+<div style="text-align: center; padding-top: 20px">
+  <h2>Let's vote your friends</h2>
+  <div style="width: 70%; margin: 80px auto auto auto;">
+    <div class="container">
+      <div class="fivecol">
+        <a href="<%= like_path(@stream.id,@students[0])%>">
+          <div class="student_img">
+            <%= image_tag(student_img(@students[0]),
+              :id => "student1",
+              :height => 213,
+              :width => 200
+            )%>
+            <p><%= render_likes_result @likes[0] %></p>
+          </div>
+        </a>
+      </div>
+      <div class="twocol" style="margin-top: 80px; font-size: 20px">
+        <h2>VS.</h2>
+      </div>
+      <div class="fivecol last">
+        <a href="<%= like_path(@stream.id,@students[1])%>">
+          <div class="student_img">
+            <%= image_tag(student_img(@students[1]),
+              :id => "student2",
+              :class => "shadow",
+              :height => 213,
+              :width => 200
+            )%>
+            <p><%= render_likes_result @likes[1] %></p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

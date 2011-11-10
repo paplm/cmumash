@@ -1,0 +1,68 @@
+<script type="text/javascript">
+  var loadImageRequest;
+  function loadImage(student,side){
+    var student_id = $(student).val()
+    if(student_id.length>7){
+      var url = "<%= img_check_path %>";
+
+      if(loadImageRequest){
+        loadImageRequest.abort();
+      }
+
+      loadImageRequest = $.ajax({
+        type: "POST",
+        url: url,
+        data:{
+          id: student_id
+        },
+        dataType: 'json',
+        success: function(result){
+          loadImageRequest = null;
+          if(result.valid){
+            if(side=="left"){
+              $("#image_1").attr("src", "http://mis.cmu.ac.th/cmumis/images/student/"+student_id+".jpg");
+            }else{
+              $("#image_2").attr("src", "http://mis.cmu.ac.th/cmumis/images/student/"+student_id+".jpg");
+            }
+          }
+          else{
+            if(side=="left"){
+              $("#image_1").attr("src","assets/mr_no.png");
+            }else{
+              $("#image_2").attr("src","assets/mr_no.png");
+            }
+            $(student).val("")
+          }
+        }
+      });
+    }
+  }
+
+</script>
+<div style="text-align: center; padding-top: 20px">
+  <h2>Let's make your friends popular</h2>
+  <div style="width: 70%; margin: 80px auto auto auto;">
+    <div class="container">
+      <%= form_tag({:controller => "stream", :action => "create"}, :method => "get") do%>
+        <div class="fivecol">
+          <%= image_tag("mr_no.png",:id => "image_1", :class => "shadow", :height => 213, :width => 200 )%>
+          <div style="margin-top: 20px;">
+            <%= text_field_tag(:usr1,"",{:onBlur => "loadImage(this,'left');"}) %>
+          </div>
+        </div>
+        <div class="twocol" style="margin-top: 100px">
+          <h2>VS.</h2>
+          <div style="margin-top: 150px;">
+            <%= submit_tag("create") %>
+          </div>
+        </div>
+        <div class="fivecol last">
+          <%= image_tag("mr_no.png",:id => "image_2",:class => "shadow", :height => 213, :width => 200 )%>
+          <div style="margin-top: 20px;">
+            <%= text_field_tag(:usr2,"",{:onBlur => "loadImage(this,'right');"}) %>
+          </div>
+        </div>
+      <%end%>
+    </div>
+  </div>
+</div>

@@ -9,9 +9,11 @@ Cmumash::Application.routes.draw do
   # first created -> highest priority.
 
   # Sample of regular route:
-     match 'student/:id' => 'user#view'
-     match 'user/:id' => 'user#view'
-     match 'stream/:id' => 'stream#stream'
+     match 'new' => 'stream#create', :as => :create
+     match 'vote/:id' => 'stream#vote' ,:as => :vote
+     match 'like/:stream/:user' => 'stream#hit_like' ,:as => :like
+     match 'user/:id' => 'user#view' , :as => :user
+     match 'img_check' => 'home#img_check' ,:as => :img_check
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
@@ -62,5 +64,5 @@ Cmumash::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id(.:format)))'
+   match ':controller(/:action(/:id(.:format)))'
 end

@@ -3,5 +3,47 @@
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
- *= require_tree . 
+ *= require_tree .
 */
+body {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    font-size: 150%;
+    color: wheat;
+    background-color: black;
+}
+a:link {
+    text-decoration: none;
+    color: white;
+}
+a:visited {
+    text-decoration: none;
+    color: blanchedalmond;
+}
+.shadow {
+    -moz-box-shadow: 5px 5px 5px dimgray;
+    -webkit-box-shadow: 5px 5px 5px dimgray;
+    box-shadow: 5px 5px 5px dimgray;
+}
+
+.container p {
+    line-height: 100px;
+    background: #000;
+    text-align: center;
+    margin: 20px 0 0 0;
+}
+.flip {
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+a.image:hover{
+    background:url('mr_no.png') no-repeat;
+}
+a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer {
+    cursor: pointer;
+}
+

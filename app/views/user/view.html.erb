@@ -1,0 +1,11 @@
+<div style="text-align: center">
+
+  <h1>Student id <%= @student %></h1>
+  <div style="margin: 100px">
+    <%= image_tag student_img(@student)%>
+    <p><%= render_streams_result @total_streams %></p>
+    <p><%= render_likes_result @total_likes %></p>
+  </div>
+
+</div>
+
